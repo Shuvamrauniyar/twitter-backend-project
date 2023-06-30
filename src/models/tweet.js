@@ -6,13 +6,17 @@ const tweetSchema = new mongoose.Schema({
         required: true,
         max: [200,'Tweet cannot exceeds more than 200 length letters']
     },
-    likes:{
+    likes:[ //one tweet can have many likes so the attributes must be a array here
+        {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Like'
-    },
-    comments:{
+    }],
+    comments:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
-    },
+    }],
 
-})
+}, {timestamps: true});
+
+const Tweet = mongoose.model('Tweet',tweetSchema);
+export default Tweet;
