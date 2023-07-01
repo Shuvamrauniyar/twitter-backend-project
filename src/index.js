@@ -7,8 +7,8 @@ app.listen(3000,async ()=>{
     console.log('Server started');
     await connect();
     console.log('MongoDB connected successfully');
-const res = await Tweet.create({
-    content: 'first tweet',
-})
+// const res = await Tweet.create({
+//     content: 'first tweet',
+// })
 console.log(res)
 });
