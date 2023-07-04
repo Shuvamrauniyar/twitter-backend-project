@@ -11,15 +11,6 @@ class crudRepository{
             return error;
         }
     }
-    async create(data){
-        try {
-            const response = await this.model.create(data);
-            return response;
-        } catch (error) {
-            console.log('something went wrong in crud repository')
-            return error;
-        }
-    }
     async get(id){
         try {
             const response = await this.model.findById(id);

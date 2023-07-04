@@ -8,7 +8,7 @@ const likeSchema = mongoose.Schema({
     },
     likeable: {
         type:mongoose.Schema.Types.ObjectId,
-        refPath: onModel,
+        refPath: 'onModel',
         required: true
     },
     user: {

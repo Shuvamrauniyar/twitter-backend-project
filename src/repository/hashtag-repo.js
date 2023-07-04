@@ -1,5 +1,5 @@
 import Hashtag from '../models/hashtag.js'
-import crudRepository from './crud-repository'
+import crudRepository from './crud-repository.js'
 
 class hashtagRepository extends crudRepository{
     constructor(){
@@ -10,7 +10,7 @@ class hashtagRepository extends crudRepository{
             const response = await Hashtag.insertMany(data);
             return response;
         } catch (error) {
-            console.log('error in hashtag repo');
+            console.log('error in hashtag repo while creating');
             return error;
         }
     }
@@ -19,9 +19,9 @@ class hashtagRepository extends crudRepository{
             const tags = await Hashtag.find({
                 title: titleList
             });
-            return response;
+            return tags;
         } catch (error) {
-            console.log('error in hashtag repo');
+            console.log('error in hashtag repo while finding by name');
             return error;
         }
     }
