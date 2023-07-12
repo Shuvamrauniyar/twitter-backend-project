@@ -30,6 +30,7 @@ class commentService{
 
         return response;
     } catch (error) {
+        console.log('error in comment-service layer');
         throw error;
     }
      
