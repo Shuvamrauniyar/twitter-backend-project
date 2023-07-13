@@ -1,15 +1,22 @@
 import express from 'express';
 import {connect} from './config/db_config.js'
 import bodyParser from 'body-parser';
+
 const app = express();
 import dotenv from 'dotenv';
 import apiRoutes from './routes/index.js';
+
+import passport from 'passport';
+import { passportAuth } from './config/passport-jwt-config.js';
 
 dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(passport.initialize());//initializing passport
+passportAuth(passport);
 
 app.listen(PORT,async ()=>{
     console.log(`Server started at PORT ${PORT}`);
