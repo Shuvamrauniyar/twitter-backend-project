@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+ //need to add userid attribute to know whom the tweets belongs to
 const tweetSchema = new mongoose.Schema({
     content: {
         type: String,
