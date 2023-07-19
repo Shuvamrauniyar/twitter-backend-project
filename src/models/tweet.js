@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
  //need to add userid attribute to know whom the tweets belongs to
 const tweetSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    },
     content: {
         type: String,
         required: true,
@@ -15,6 +20,9 @@ const tweetSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     }],
+    image: {
+        type:String,
+    }
 
 }, {timestamps: true});
 
