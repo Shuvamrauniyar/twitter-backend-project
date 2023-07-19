@@ -7,17 +7,16 @@ class tweetService {
     }
     async create(data) {
        try{
-             console.log('hit');
             const content = data.content;
-            console.log(data.content);
+            //console.log(data.content);
             //extracting hashtags from the tweet posts
             const tags = content.match(/#[a-zA-Z0-9_]+/g).map((tag) => tag.substring(1));
-            console.log(tags);
+            //console.log(tags);
 
             const tweet = await this.tweetRepo.create(data);
 
             let alreadyPresentTags = await this.hashtagRepo.findByName(tags);
-            console.log(alreadyPresentTags);
+            //console.log(alreadyPresentTags);
 
             let titleOfPresentTags = alreadyPresentTags.map(tags => tags.title);
 

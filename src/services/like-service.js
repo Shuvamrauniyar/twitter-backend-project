@@ -31,7 +31,7 @@ class likeService {
             if(exists) {
             likeable.likes.pull(exists.id);
                 await likeable.save();
-            await exists.deleteOne();
+            await exists.deleteOne();//deleting from Like model
             //await exits.remove(); this is currently not working
                 var isAdded = false;
             } else {
